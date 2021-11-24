@@ -1,0 +1,20 @@
+:root{
+  --error-color: rgb(215, 41, 35);
+  --correct-color: rgb(31, 127, 69);
+}
+
+.container-form{
+  position: relative;
+  max-width: 20.625rem;
+  max-height: auto;
+  background-color: #fff;
+  padding: 1.5rem;
+  border-radius: 1rem;
+}
+
+.container .container-form .title-form h2{
+  font-size: 1.5rem;
+  margin: 0 0 32px;
+  font-weight: 500;
+  line-height: 1.32;
+}

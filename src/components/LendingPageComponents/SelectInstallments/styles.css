@@ -1,0 +1,81 @@
+.dropdownEl {
+    position: relative;
+    border-bottom:  1px solid rgba(17, 17, 17, 0.2);
+}
+
+.dropdown-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown-title span {
+    font-weight: 500;
+    color: rgba(17, 17, 17, 0.4);
+}
+
+.dropdown-title i {
+    font-size: 20px;
+    transition: transform 0.2s;
+}
+
+.dropdown-title i.active {
+    transform: rotate(-90deg);
+}
+
+.dropdown-menuEl {
+    width: 100%;
+    position: absolute;
+    display: none;
+    transition: all ease 2s;
+    background-color: #fff;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.1)
+}
+
+.dropdown-menuEl.open {
+    z-index: 400;
+    display: block;
+}
+
+.dropdown-menuEl ul {
+    margin: 0;
+    padding: 10px;
+    list-style: none;
+}
+
+.dropdown-menuEl ul > li {
+    padding: 5px;
+    border-radius: 10px;
+    margin-bottom: 5px;
+    transition: background 0.3s;
+}
+.dropdown-menuEl ul > li:hover {
+    background-color: #6a62fd59;
+}
+
+.dropdown-menuEl ul > li input {
+    display: none;
+}
+
+.dropdown-menuEl ul > li input + label:before {
+    content: '';
+    display: flex;
+    width: 18px;
+    height: 18px;
+    border-radius: 100%;
+    display: inline-block;
+    border: 1px solid gray;
+    margin-right: 8px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+}
+
+.dropdown-menuEl ul > li input:checked + label:before {
+    content: '';
+    background: url('../../../images/check.png') no-repeat center;
+    background-size: contain;
+    width: 18px;
+    padding: 8px;
+    border: none;
+}
