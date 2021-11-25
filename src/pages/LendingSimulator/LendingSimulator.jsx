@@ -26,38 +26,36 @@ const LendigSimulator = () => {
 	};
 
 	return (
-		<motion.div initial="out" animate="in" exit="out" transition={pageTransition} variants={pageVariants}>
-			<div className="container-fluid">
-				<div className="row">
-					<div className="col-md-5 col-left">
-						<div className="content-left">
-							<LeftSection />
-						</div>
-					</div>
-					<div className="col-md-7 col-right">
-						<div className="container-x">
-							<Link to="/">
-								<button>
-									<i className="bi bi-x" />
-								</button>
-							</Link>
-						</div>
-						<div className="content-right">
-							<RightSection />
-							<div className="total-container">
-								<div className="total-content">
-									<span>Total a Pagar</span>
-									<p>
-										<strong>R$ 16.033,86 </strong>
-									</p>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</motion.div>
-	);
+    <motion.div
+      initial="out"
+      animate="in"
+      exit="out"
+      transition={pageTransition}
+      variants={pageVariants}
+    >
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-5 col-left">
+            <div className="content-left">
+              <LeftSection />
+            </div>
+          </div>
+          <div className="col-md-7 col-right">
+            <div className="container-x">
+              <Link to="/">
+                <button>
+                  <i className="bi bi-x" />
+                </button>
+              </Link>
+            </div>
+            <div className="content-right">
+              <RightSection />
+            </div>
+          </div>
+        </div>
+      </div>
+    </motion.div>
+  );
 };
 
 export default LendigSimulator;

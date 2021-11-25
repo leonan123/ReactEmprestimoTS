@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 import "./styles.css";
 
 const Select = ({ value }) => {
   var expanded = false;
+
+  const [checked, setChecked] = useState("");
 
   const handleClickDropdown = (e) => {
     let icon = document.querySelector(".dropdown-title > i");
@@ -18,6 +20,14 @@ const Select = ({ value }) => {
       dropdownMenu.classList.remove("open");
       expanded = false;
     }
+  };
+
+  const handleInputChecked = (e) => {
+    var inputs = document.querySelectorAll("input[type=checkbox]");
+    var inputTarget = document.querySelector("#" + e.target.getAttribute("id"));
+    setChecked("checked");
+
+    inputs.forEach((element) => {});
   };
 
   return (
@@ -36,8 +46,13 @@ const Select = ({ value }) => {
             {Array.from({ length: 11 }, (v, k) => k + 2).map((x) => {
               return (
                 <li>
-                  <input type="checkbox" name="check1" id={`check${x}`} />
-                  <label htmlFor="check1">
+                  <input
+                    onChange={handleInputChecked}
+                    type="checkbox"
+                    name={`check${x}`}
+                    id={`check${x}`}
+                  />
+                  <label htmlFor={`check${x}`}>
                     {x} parcelas de <strong>R${(value / x).toFixed(2)}</strong>
                   </label>
                 </li>

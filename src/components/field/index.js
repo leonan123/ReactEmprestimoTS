@@ -4,17 +4,27 @@ import Label from "./Label";
 import Content from "./content";
 import Input from "./Input";
 
-const Text = ({ label, type, name, id, register, change, focus, blur }) => {
+const Text = ({
+  label,
+  labelId,
+  type,
+  name,
+  id,
+  register,
+  change,
+  focus,
+  blur,
+}) => {
   return (
     <Label>
-      <Content>{label}</Content>
+      <Content id={labelId}>{label}</Content>
       <Input
         type={type}
         name={name}
         id={id}
         onChange={(event) => change(event.target.value)}
-        onFocus={(event) => focus(event.target.value)}
-        onBlur={(event) => blur(event.target.value)}
+        onFocus={() => focus(labelId)}
+        onBlur={(event) => blur(event.target.value, labelId)}
         {...register}
       />
     </Label>

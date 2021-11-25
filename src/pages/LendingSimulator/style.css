@@ -54,14 +54,3 @@
     padding: 80px 90px;
 }
 
-.col-right .total-container {
-    position: absolute;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    bottom: 0;
-}
-
-.col-right .total-container .total-content p {
-    color: rgb(130, 10, 209)
-}

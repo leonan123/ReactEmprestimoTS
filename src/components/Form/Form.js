@@ -9,21 +9,33 @@ import Select from "../LendingPageComponents/SelectInstallments/Select";
 const Form = () => {
   const { register, handleSubmit } = useForm();
   const [value, setValue] = useState(0);
+  const [valueDate, setValueDate] = useState(0);
+
   const newLoan = (data) => {
     console.log(data);
   };
 
-  const inputFocus = (valor) => {
-    var labelInput = document.querySelector("label > span");
+  const inputFocus = (labelId) => {
+    var labelInput = document.querySelector(`#${labelId}`);
+    console.log(labelInput);
     labelInput.classList.add("active");
   };
 
-  const inputBlur = (valor) => {
-    var labelInput = document.querySelector("label > span");
+  const inputBlur = (valor, labelId) => {
+    var labelInput = document.querySelector(`#${labelId}`);
 
     if (valor <= 0) {
       labelInput.classList.remove("active");
     }
+  };
+
+  const calculaJuros = (value) => {
+    var calc1 = 1 + 3 / 100;
+    var potencia = Math.pow(calc1, 3);
+    var M = value * potencia;
+
+    let newValue = M;
+    return newValue;
   };
 
   return (
@@ -33,6 +45,7 @@ const Form = () => {
           <div className="container-inputGroup">
             <field.Text
               label="Valor do empréstimo"
+              labelId="valor"
               name="valor"
               type="text"
               id="valor"
@@ -49,10 +62,12 @@ const Form = () => {
           <div className="container-inputGroup">
             <field.Text
               label="Data do primeiro pagamento"
+              labelId="date"
               name="date"
-              type="date"
+              type="text"
               id="date"
-              value={value}
+              change={(v) => setValueDate(v)}
+              value={valueDate}
               focus={inputFocus}
               blur={inputBlur}
               register={register}
@@ -60,6 +75,14 @@ const Form = () => {
           </div>
           <BtnSubmit text="Simular Empréstimo" />
         </form>
+        <div className="total-container">
+          <div className="total-content">
+            <span>Total a Pagar</span>
+            <p>
+              <strong>R$ {calculaJuros(value)} </strong>
+            </p>
+          </div>
+        </div>
       </FormContainer>
     </>
   );
