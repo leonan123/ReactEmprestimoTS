@@ -5,6 +5,7 @@
 
 .dropdown-title {
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
@@ -22,6 +23,10 @@
 
 .dropdown-title i.active {
     transform: rotate(-90deg);
+}
+
+.dropdown-subtitle *{
+    font-size: .8rem;
 }
 
 .dropdown-menuEl {
